@@ -7,6 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="pro1" />
+        <module name="Kalkulejszyn" />
+        <module name="JavaCalculatorGui" />
       </profile>
     </annotationProcessing>
   </component>

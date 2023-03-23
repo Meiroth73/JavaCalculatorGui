@@ -1,2 +1,9 @@
-/.idea
 /out
+/.idea
+/atlassian-ide-plugin.xml
+/*.ipr
+/*.iws
+/*.iml
+/classes
+/fileTemplates
+/target

@@ -114,15 +114,27 @@ public class Controller {
                 break;
             case '-':
                 reasult = firstNumber - secondNumber;
-                reasultWindow.setText(Double.toString(reasult));
+                if ((reasult / 10) > 9) {
+                    reasultWindow.setText(Double.toString(reasult));
+                } else {
+                    reasultWindow.setText(Integer.toString((int)reasult));
+                }
                 break;
             case  '*':
                 reasult = firstNumber * secondNumber;
-                reasultWindow.setText(Double.toString(reasult));
+                if ((reasult / 10) > 9) {
+                    reasultWindow.setText(Double.toString(reasult));
+                } else {
+                    reasultWindow.setText(Integer.toString((int)reasult));
+                }
                 break;
             case '/':
                 reasult = firstNumber / secondNumber;
-                reasultWindow.setText(Double.toString(reasult));
+                if ((reasult / 10) > 9) {
+                    reasultWindow.setText(Double.toString(reasult));
+                } else {
+                    reasultWindow.setText(Integer.toString((int)reasult));
+                }
                 break;
         }
     }
