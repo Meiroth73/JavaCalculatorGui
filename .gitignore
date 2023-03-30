@@ -7,3 +7,6 @@
 /classes
 /fileTemplates
 /target
+/META-INF
+
+*.gitignore
