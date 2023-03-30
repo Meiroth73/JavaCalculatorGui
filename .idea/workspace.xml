@@ -102,7 +102,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/pro1/Controller.java</url>
-          <line>133</line>
+          <line>135</line>
           <properties class="com.example.pro1.Controller" method="clickDot">
             <option name="EMULATED" value="true" />
           </properties>
