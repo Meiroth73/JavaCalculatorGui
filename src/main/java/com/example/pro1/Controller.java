@@ -1,19 +1,24 @@
 package com.example.pro1;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
 public class Controller {
 
     //zmienne i funkcje pomocnicze
-    boolean isFirstNumber = true;
-    double firstNumber = 0;
-    double secondNumber = 0;
-    String firstNumberAsString = "";
-    String secondNUmberAsString = "";
-    double reasult;
-    char operation;
-    double number;
+    private boolean isFirstNumber = true;
+    private boolean firstDotIsUsed = false;
+    private boolean secondDotIsUsed = false;
+
+    private double firstNumber = 0;
+    private double secondNumber = 0;
+    private String firstNumberAsString = "";
+    private String secondNUmberAsString = "";
+
+    private double reasult;
+    private char operation;
+    private double memoryNumber;
 
     private void addNumber(String x) {
         if (isFirstNumber) {
@@ -63,8 +68,18 @@ public class Controller {
 
     //Przyciski numeryczne
     @FXML
-    private void clickZero() {
-        addNumber("0");
+    private void clickZero(Event event) {
+        if (firstNumberAsString.length() == 0) {
+            firstNumberAsString += "0.";
+            reasultWindow.setText(firstNumberAsString);
+            firstDotIsUsed = true;
+        } else if (secondNUmberAsString.length() == 0) {
+            secondNUmberAsString += "0.";
+            reasultWindow.setText(secondNUmberAsString);
+            secondDotIsUsed = true;
+        } else {
+            addNumber("0");
+        }
     }
 
     @FXML
@@ -126,6 +141,8 @@ public class Controller {
     private void clickClear() {
         reasultWindow.clear();
         isFirstNumber = true;
+        firstDotIsUsed = false;
+        secondDotIsUsed = false;
         firstNumber = 0;
         secondNumber = 0;
         reasult = 0 ;
@@ -134,28 +151,36 @@ public class Controller {
     }
     @FXML
     private void clickDot() {
-        if (isFirstNumber) {
-            firstNumberAsString += ".";
-            reasultWindow.setText(firstNumberAsString);
-        } else {
-            secondNUmberAsString += ".";
-            reasultWindow.setText(secondNUmberAsString);
+        if (firstNumberAsString.length() != 0 || secondNUmberAsString.length() != 0) {
+            if (isFirstNumber) {
+                if (!firstDotIsUsed) {
+                    firstNumberAsString += ".";
+                    reasultWindow.setText(firstNumberAsString);
+                    firstDotIsUsed = true;
+                }
+            } else {
+                if (!secondDotIsUsed) {
+                    secondNUmberAsString += ".";
+                    reasultWindow.setText(secondNUmberAsString);
+                    secondDotIsUsed = true;
+                }
+            }
         }
     }
     @FXML
     private void clickMemoryPlus() {
-        number = Double.parseDouble(reasultWindow.getText());
+        memoryNumber = Double.parseDouble(reasultWindow.getText());
     }
     @FXML
     private void clickMemoryMinus() {
-        number = 0;
+        memoryNumber = 0;
     }
     @FXML
     private void clickMemoryRestore() {
-        if (isInt(number % 10)) {
-            reasultWindow.setText(Integer.toString((int)number));
+        if (isInt(memoryNumber % 10)) {
+            reasultWindow.setText(Integer.toString((int) memoryNumber));
         } else {
-            reasultWindow.setText(Double.toString(number));
+            reasultWindow.setText(Double.toString(memoryNumber));
         }
     }
     @FXML
