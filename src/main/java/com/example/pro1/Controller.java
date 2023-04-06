@@ -1,5 +1,6 @@
 package com.example.pro1;
 
+import javafx.application.Application;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -50,7 +51,9 @@ public class Controller {
     }
 
     private boolean isInt(double x) {
-        if ((x % 10 == 0) || (x % 10 == 1) || (x % 10 == 2) || (x % 10 == 3) || (x % 10 == 4) || (x % 10 == 5) || (x % 10 == 6) || (x % 10 == 7) || (x % 10 == 8) || (x % 10 == 9)) {
+        if (0 == (x % 10)) {
+            return true;
+        } else if (((x % 10) == 1) || ((x % 10) == 2) || ((x % 10) == 3) || ((x % 10) == 4) || ((x % 10) == 5) || ((x % 10) == 6) || ((x % 10) == 7) || ((x % 10) == 8) || ((x % 10) == 9)) {
             return true;
         } else {
             return false;
